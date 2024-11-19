@@ -36,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
     private ProgressBar spinner;
     private EditText mEmail, mName, mPassword, mConfirmPassword, mBudget;
 
-    private RadioGroup mRadioGroup;
+    //private RadioGroup mRadioGroup;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
