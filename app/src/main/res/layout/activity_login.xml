@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/floral_border"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="25sp"
+                android:paddingTop="100sp"
+                android:paddingRight="25sp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60sp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="30sp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="60sp"
+                        android:layout_height="60sp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="40sp"
+                        android:text="Meet You"
+                        android:textColor="#ff0b00"
+                        android:textSize="30sp" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txfldEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10sp"
+                        app:helperText="Enter your email."
+                        app:boxStrokeColor="@color/smoke_red"
+                        app:cursorColor="@color/red_intense"
+                        android:textColorHint="@color/red_intense"
+                        app:helperTextTextColor="@color/smoke_red"
+                        app:hintTextColor="@color/red_intense"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtxtEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txfldPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        app:helperText="Enter a password longer than 6 letters."
+                        app:counterEnabled="true"
+                        app:boxStrokeColor="@color/smoke_red"
+                        app:cursorColor="@color/red_intense"
+                        android:textColorHint="@color/red_intense"
+                        app:endIconMode="password_toggle"
+                        app:endIconTint="@color/smoke_red"
+                        app:helperTextTextColor="@color/smoke_red"
+                        app:counterTextColor="@color/smoke_red"
+                        app:hintTextColor="@color/red_intense"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtxtPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/forgot_Password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20sp"
+                        android:layout_marginBottom="5sp"
+                        android:gravity="right"
+                        android:text="Forgot Password?"
+                        android:clickable="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/smoke_red"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@android:style/Widget.Material.Button.Borderless.Colored"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginBottom="5sp"
+                        android:background="@drawable/white_rounded_button"
+                        android:padding="12sp"
+                        android:text="Login"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/link_signup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginBottom="75sp"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:onClick="goToRegister"
+                        android:text="No account yet? Create one"
+                        android:textColor="@color/smoke_red"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressBarLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:indicatorColor="@color/red_dark"
+            />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "303290685049",
+    "firebase_url": "https://meetme-a92a2-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "meetme-a92a2",
+    "storage_bucket": "meetme-a92a2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303290685049:android:746285d857e0fc3f3026a8",
+        "android_client_info": {
+          "package_name": "com.example.meetme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBnbvRQbUC_HOf-jftDS5lgfcMJxd1HZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
