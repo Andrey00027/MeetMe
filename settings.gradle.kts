@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://your-maven-repo-url") } // Add custom repos here
+        //maven { url = uri("https://your-maven-repo-url") } // Add custom repos here
     }
 }
 
