@@ -182,6 +182,7 @@ public class RegisterActivity extends AppCompatActivity {
 //            Toast.makeText(this, "Please accept the terms and conditions.", Toast.LENGTH_SHORT).show();
 //            return false;
 //        }
+
         return true;
 
     }
