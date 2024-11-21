@@ -23,7 +23,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity
+{
 
     private static final String TAG = "LoginActivity";
 
@@ -37,12 +38,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         //FirebaseApp.initializeApp(LoginActivity.this);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) ->
+        {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -58,30 +61,43 @@ public class LoginActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.edtxtLoginPassword);
         mforgotPassword = findViewById(R.id.forgot_Password);
 
-        mLogin.setOnClickListener(new View.OnClickListener() {
+        mLogin.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 btnLoginClicked = true;
                 spinner.setVisibility(View.VISIBLE);
                 final String email = mEmail.getText().toString();
                 final String password = mPassword.getText().toString();
 
-                if(isStringNull(email) || isStringNull(password)){
+                if(isStringNull(email) || isStringNull(password))
+                {
                     Toast.makeText(LoginActivity.this, "All the fields must be completed.", Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                else
+                {
                     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this,
-                            new OnCompleteListener<AuthResult>() {
+                            new OnCompleteListener<AuthResult>()
+                            {
                                 @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if(!task.isSuccessful()){
+                                public void onComplete(@NonNull Task<AuthResult> task)
+                                {
+                                    if(!task.isSuccessful())
+                                    {
                                         Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        if(mAuth.getCurrentUser().isEmailVerified()){
+                                    }
+                                    else
+                                    {
+                                        if(mAuth.getCurrentUser().isEmailVerified())
+                                        {
                                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
                                             startActivity(i);
                                             finish();
-                                        } else {
-                                            Toast.makeText(LoginActivity.this, "Authentification failed, please verify your email and password and try again", Toast.LENGTH_SHORT).show();
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(LoginActivity.this, "Authentication failed, please verify your email and password and try again", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 }
@@ -91,9 +107,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        mforgotPassword.setOnClickListener(new View.OnClickListener() {
+        mforgotPassword.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 spinner.setVisibility(View.VISIBLE);
                 Intent i = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(i);
@@ -101,11 +119,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
+        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener()
+        {
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
+            {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if (user != null && user.isEmailVerified() && !btnLoginClicked){
+
+                if (user != null && user.isEmailVerified() && !btnLoginClicked)
+                {
                     spinner.setVisibility(View.VISIBLE);
                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);
@@ -116,23 +138,27 @@ public class LoginActivity extends AppCompatActivity {
         };
     }
 
-    private boolean isStringNull(String email) {
+    private boolean isStringNull(String email)
+    {
         return email.equals("");
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart()
+    {
         super.onStart();
         mAuth.addAuthStateListener(firebaseAuthStateListener);
     }
 
     @Override
-    protected void onStop() {
+    protected void onStop()
+    {
         super.onStop();
         mAuth.removeAuthStateListener(firebaseAuthStateListener);
     }
 
-    public void goToRegister(View v){
+    public void goToRegister(View v)
+    {
         Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(i);
     }

@@ -30,7 +30,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity
+{
 
     private Button mRegister;
     private ProgressBar spinner;
@@ -44,18 +45,21 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
 
 //    @Override
-//    public int checkCallingOrSelfPermission(String permission){
+//    public int checkCallingOrSelfPermission(String permission)
+//    {
 //
 //        return super.checkCallingOrSelfPermission(permission);
 //    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(RegisterActivity.this);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) ->
+        {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -66,12 +70,15 @@ public class RegisterActivity extends AppCompatActivity {
 
         //TextView existing = findViewById(R.id.existing);
         mAuth = FirebaseAuth.getInstance();
-        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
+        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener()
+        {
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
+            {
                 spinner.setVisibility(View.VISIBLE);
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if(user != null && user.isEmailVerified()){
+                if(user != null && user.isEmailVerified())
+                {
                     Intent i = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(i);
                     finish();
@@ -83,7 +90,8 @@ public class RegisterActivity extends AppCompatActivity {
         };
 
         /*
-        existing.setOnClickListener(new View.OnClickListener() {
+        existing.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v){
                 Intent i = new Intent(RegisterActivity.this, MainActivity.class);
@@ -107,9 +115,11 @@ public class RegisterActivity extends AppCompatActivity {
         //textview.setClickable(true);
         //textview.setMovementMethod(LinkMovementMethod.getInstance());
 
-        mRegister.setOnClickListener(new View.OnClickListener() {
+        mRegister.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 spinner.setVisibility(View.VISIBLE);
 
                 final String email = mEmail.getText().toString();
@@ -118,20 +128,28 @@ public class RegisterActivity extends AppCompatActivity {
                 final String confirmPassword = mConfirmPassword.getText().toString();
                 //final Boolean tnc = checkbox.isChecked();
 
-                if(checkInputs(email, username, password, confirmPassword)){
+                if(checkInputs(email, username, password, confirmPassword))
+                {
 
-                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>()
+                    {
                         @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(!task.isSuccessful()){
+                        public void onComplete(@NonNull Task<AuthResult> task)
+                        {
+                            if(!task.isSuccessful())
+                            {
                                 Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            }else{
-                                mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            }
+                            else
+                            {
+                                mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>()
+                                {
                                     @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()){
-                                            Toast.makeText(RegisterActivity.this, "User Registered Successfully." +
-                                                    "Please check your email for verification.", Toast.LENGTH_SHORT).show();
+                                    public void onComplete(@NonNull Task<Void> task)
+                                    {
+                                        if(task.isSuccessful())
+                                        {
+                                            Toast.makeText(RegisterActivity.this, "User Registered Successfully. Please check your email for verification.", Toast.LENGTH_SHORT).show();
                                             String userId = mAuth.getCurrentUser().getUid();
                                             DatabaseReference currentUserDB = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
                                             Map userInfo = new HashMap<>();
@@ -147,7 +165,9 @@ public class RegisterActivity extends AppCompatActivity {
                                             Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
                                             startActivity(i);
                                             finish();
-                                        }else {
+                                        }
+                                        else
+                                        {
                                             Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                         }
                                     }
@@ -163,17 +183,20 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean checkInputs(String email, String username, String password, String confirmPassword)
     {
-        if(email.isEmpty() || username.isEmpty()  || password.isEmpty()  || confirmPassword.isEmpty() ){
+        if(email.isEmpty() || username.isEmpty()  || password.isEmpty()  || confirmPassword.isEmpty())
+        {
             Toast.makeText(this, "All fields must be filled out", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if(!email.matches(emailPattern)){
+        if(!email.matches(emailPattern))
+        {
             Toast.makeText(this, "Invalid email address. Try again", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if(!password.equals(confirmPassword)){
+        if(!password.equals(confirmPassword))
+        {
             Toast.makeText(this, "Passwords do not match. Try again.", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -188,15 +211,22 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart()
+    {
         super.onStart();
         mAuth.addAuthStateListener(firebaseAuthStateListener);
     }
 
     @Override
-    protected void onStop(){
+    protected void onStop()
+    {
         super.onStop();
         mAuth.removeAuthStateListener(firebaseAuthStateListener);
+    }
+
+    public void ReturnToLogin(View v)
+    {
+        finish();
     }
 
 }

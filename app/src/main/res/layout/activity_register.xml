@@ -82,7 +82,6 @@
                         android:id="@+id/input_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_focused_bg"
                         android:hint="Enter your Email"
                         android:inputType="textEmailAddress"
                         android:padding="15sp" />
@@ -102,7 +101,6 @@
                         android:id="@+id/input_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_focused_bg"
                         android:hint="Enter your username "
                         android:inputType="textEmailAddress"
                         android:padding="15sp" />
@@ -122,7 +120,6 @@
                         android:id="@+id/input_phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_focused_bg"
                         android:hint="Enter your phone number. "
                         android:inputType="textEmailAddress"
                         android:padding="15sp" />
@@ -148,7 +145,6 @@
                         android:id="@+id/input_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_focused_bg"
                         android:hint="Enter your Password"
                         android:inputType="textPassword"
                         android:padding="15sp" />
@@ -173,7 +169,6 @@
                         android:id="@+id/input_passwordConfirmation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_focused_bg"
                         android:hint="Confirm your Password"
                         android:inputType="textPassword"
                         android:padding="15sp" />
@@ -201,9 +196,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:padding="15dp"
+                android:textColor="@color/red_dark"
+                android:textStyle="bold"
+                android:padding="15sp"
+                android:onClick="ReturnToLogin"
                 android:text="Already registered? Please Login"
-                tools:ignore="OnClick" />
+                />
 
             <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/progressBarRegister"
@@ -213,6 +211,10 @@
                 android:indeterminate="true"
                 android:visibility="gone"
                 app:indicatorColor="@color/red_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 />
 
         </RelativeLayout>
