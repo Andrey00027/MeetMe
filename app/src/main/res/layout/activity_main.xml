@@ -51,8 +51,10 @@
                             android:id="@+id/frame"
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
+                            android:layout_weight="1"
                             android:background="@color/white"
-                            app:rotation_degrees="15.5" />
+                            app:rotation_degrees="15.5"
+                            tools:context=".MainActivity"/>
 
                     </androidx.cardview.widget.CardView>
 
@@ -69,25 +71,31 @@
                         android:gravity="center"
                         android:orientation="horizontal">
 
-                        <com.google.android.material.button.MaterialButton
+                        <ImageButton
                             android:id="@+id/dislikeBtn"
                             android:layout_width="70dp"
                             android:layout_height="70dp"
-                            android:backgroundTint="@color/gray_lighter"
-                            app:cornerRadius="35dp"
                             android:layout_marginRight="30dp"
-                            app:icon="@drawable/dislike_icon"
-                            app:iconTint="@color/black" />
+                            android:background="@drawable/rounded_button_background"
+                            android:src="@drawable/dislike_icon"
+                            app:tint="@color/black"
+                            android:padding="15dp"
+                            android:scaleType="centerInside"
+                            android:elevation="4dp"
+                            android:contentDescription="dislike_image"  />
 
-                        <com.google.android.material.button.MaterialButton
+                        <ImageButton
                             android:id="@+id/likeBtn"
                             android:layout_width="70dp"
                             android:layout_height="70dp"
-                            android:backgroundTint="@color/gray_lighter"
-                            app:cornerRadius="35dp"
                             android:layout_marginLeft="30dp"
-                            app:icon="@drawable/like_icon"
-                            app:iconTint="@color/black" />
+                            android:background="@drawable/rounded_button_background"
+                            android:src="@drawable/like_icon"
+                            app:tint="@color/black"
+                            android:padding="15dp"
+                            android:scaleType="centerInside"
+                            android:elevation="4dp"
+                            android:contentDescription="like_image" />
 
                     </LinearLayout>
 

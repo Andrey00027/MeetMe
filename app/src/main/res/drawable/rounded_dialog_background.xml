@@ -1,4 +1,20 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/white_gray"/>
-    <corners android:radius="16dp"/>
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Shadow Layer -->
+    <item>
+        <shape>
+            <solid android:color="@color/black" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+
+    <!-- Main Content Layer -->
+    <item android:top="0.1dp" android:bottom="0.1dp" android:left="0.1dp" android:right="0.1dp">
+        <shape>
+            <solid android:color="@color/white_gray" />
+            <corners android:radius="20dp" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/black" />
+        </shape>
+    </item>
+</layer-list>

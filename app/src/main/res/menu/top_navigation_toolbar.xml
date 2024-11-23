@@ -9,7 +9,7 @@
         />
 
     <item
-        android:id="@+id/main_activity_icon"
+        android:id="@+id/ic_home"
         android:icon="@drawable/home_icon"
         android:title=""
         android:contentDescription="Home"
