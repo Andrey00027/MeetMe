@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatActivity">
+
+    <LinearLayout
+        android:id="@+id/ToolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include android:id="@+id/chatToolbar"
+            layout="@layout/toolbar"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/messagesLayout"
+        android:layout_below="@+id/ToolbarLayout"
+        android:layout_above="@+id/sendLayout"
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sendLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="8dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_toStartOf="@id/btnSend"
+            android:background="@drawable/edittext_background"
+            android:hint="Write a message..."
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray"
+            android:drawablePadding="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <ImageButton
+            android:id="@+id/btnSend"
+            android:layout_width="45sp"
+            android:layout_height="45sp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_send_message"
+            android:scaleType="fitXY"
+            android:contentDescription="Send message"
+            app:tint="@color/transparentPink" />
+
+    </LinearLayout>
+
+</RelativeLayout>

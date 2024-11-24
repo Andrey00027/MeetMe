@@ -1,7 +1,9 @@
 package com.example.meetme;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +20,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -113,9 +117,55 @@ public class LoginActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 spinner.setVisibility(View.VISIBLE);
-                Intent i = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
-                startActivity(i);
-                finish();
+                AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+
+                // Inflate custom layout
+                LayoutInflater inflater = getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.dialog_forgot_password, null);
+                alert.setView(dialogView);
+
+                // Initialize EditText and TextView from custom layout
+                EditText input = dialogView.findViewById(R.id.edtxtLoginEmail);
+
+                alert.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        String entered_email = input.getText().toString();
+
+                        mAuth.sendPasswordResetEmail(entered_email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                dialog.dismiss();
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Email sent. Please check your email.", Toast.LENGTH_SHORT).show();
+                                    spinner.setVisibility(View.GONE);
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Error sending email. Please try again.", Toast.LENGTH_SHORT).show();
+                                    spinner.setVisibility(View.GONE);
+                                }
+                            }
+                        });
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        spinner.setVisibility(View.GONE);
+                    }
+                });
+
+                AlertDialog dialog = alert.create();
+                // Apply rounded corners to the dialog window
+                if (dialog.getWindow() != null) {
+                    dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_dialog_background);
+                }
+                dialog.show();
+
+                // Customize button colors (optional)
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.primaryButtonColor));
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.secondaryButtonColor));
             }
         });
 

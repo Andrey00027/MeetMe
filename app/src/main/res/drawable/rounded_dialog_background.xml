@@ -13,8 +13,8 @@
             <solid android:color="@color/white_gray" />
             <corners android:radius="20dp" />
             <stroke
-                android:width="2dp"
-                android:color="@color/black" />
+                android:width="0dp"
+                android:color="@color/white" />
         </shape>
     </item>
 </layer-list>
