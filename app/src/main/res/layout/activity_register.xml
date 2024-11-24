@@ -183,7 +183,6 @@
                     android:layout_marginBottom="25sp"
                     android:padding="12sp"
                     android:text="Register"
-
                     android:textColor="@color/white"
                     android:background="@drawable/white_rounded_button"
                     />
