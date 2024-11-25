@@ -4,6 +4,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.ScrollView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -14,6 +15,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private ScrollView scrollView;
     private View editText;
+    private Button btnCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,10 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         // Reference your ScrollView and the EditText here
-        scrollView = findViewById(R.id.scroll_Settings); // Replace with your ScrollView ID
-        editText = findViewById(R.id.edtxt_SocialStatus);  // Replace with the specific EditText ID
+        scrollView = findViewById(R.id.scroll_Settings);
+        editText = findViewById(R.id.edtxt_SocialStatus);
+        btnCancel = findViewById(R.id.btnCancelSettings);
+
 
         // Adjust scroll position when the keyboard is visible
         scrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -50,5 +54,7 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnCancel.setOnClickListener(v -> finish());
     }
 }
