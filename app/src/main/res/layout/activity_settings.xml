@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <include
-            android:id="@+id/settings_toolbarTag"
+            android:id="@+id/toolbarSettings"
             layout="@layout/toolbar_settings" />
 
         <ScrollView
@@ -38,9 +38,9 @@
                     android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/profileImage"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:id="@+id/imvProfileImage"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
                         android:layout_marginBottom="20dp"
                         android:src="@drawable/no_image" />
                 </LinearLayout>
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="8dp"
                     android:paddingVertical="8dp"
-                    android:background="@drawable/rounded_dialog_background"
+                    android:background="@drawable/rounded_textview_background"
                     android:gravity="center"
                     android:text="About You"
                     android:textSize="20sp"
@@ -69,6 +69,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Name"
+                        android:inputType="textPersonName"
+                        android:padding="15dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    app:hintTextColor="@color/red_intense">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtxt_Sex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Sex"
                         android:inputType="textPersonName"
                         android:padding="15dp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -109,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="8dp"
                     android:paddingVertical="8dp"
-                    android:background="@drawable/rounded_dialog_background"
+                    android:background="@drawable/rounded_textview_background"
                     android:gravity="center"
                     android:text="Hobbies"
                     android:textSize="20sp"
@@ -137,7 +152,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="8dp"
                     android:paddingVertical="8dp"
-                    android:background="@drawable/rounded_dialog_background"
+                    android:background="@drawable/rounded_textview_background"
                     android:gravity="center"
                     android:text="More About You"
                     android:textSize="20sp"
@@ -169,7 +184,7 @@
                         android:id="@+id/edtxt_SocialStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Social Status"
+                        android:hint="Civil Status"
                         android:inputType="textMultiLine"
                         android:padding="15dp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -188,7 +203,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:backgroundTint="@color/red_intense"
+                        android:backgroundTint="@color/purple_200"
                         android:text="Cancel"
                         android:textStyle="bold"
                         android:textSize="18sp" />
@@ -199,7 +214,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:backgroundTint="@color/green_500"
+                        android:backgroundTint="@color/red_200"
                         android:text="Save"
                         android:textStyle="bold"
                         android:textSize="18sp" />

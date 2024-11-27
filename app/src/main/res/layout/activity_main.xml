@@ -22,7 +22,7 @@
             android:id="@+id/card_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="70dp">
+            android:layout_marginBottom="70dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="10dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -115,9 +115,20 @@
 
         </FrameLayout>
 
-        <include layout="@layout/top_navigation_view" />
 
     </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/top_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        app:itemIconTint="@drawable/nav_icon_selector"
+        app:menu="@menu/top_navigation_toolbar"
+        app:itemIconSize="30dp"
+        app:itemHorizontalTranslationEnabled="false"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"  />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progressBarMain"

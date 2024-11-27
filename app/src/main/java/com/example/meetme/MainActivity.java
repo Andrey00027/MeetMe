@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupTopNavigationView() {
-        BottomNavigationView tvNv = findViewById(R.id.topNavViewBar);
+        BottomNavigationView tvNv = findViewById(R.id.top_navigation_view);
         TopNavigationViewHelper.setupTopNavigationView(tvNv);
         TopNavigationViewHelper.enableNavigation(this, tvNv);
         Menu menu = tvNv.getMenu();
