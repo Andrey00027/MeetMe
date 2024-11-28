@@ -22,7 +22,7 @@
             android:name=".btnLikeActivity"
             android:exported="false" />
         <activity
-            android:name=".MatchedActivity"
+            android:name=".Matched.MatchedActivity"
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"

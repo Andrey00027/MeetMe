@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- User Image -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/MatchUserImage"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginEnd="7dp"
+            android:padding="3dp"
+            android:src="@drawable/no_image"
+            app:civ_border_color="@color/red_dark"
+            app:civ_border_width="2dp" />
+
+        <!-- User Details -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- User Name and Last Seen -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="-3dp"
+                android:layout_marginRight="5dp">
+
+                <TextView
+                    android:id="@+id/MatchUserName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Andrei"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/MatchLastTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 hours ago"
+                    android:textColor="@color/gray_light"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Occupation -->
+            <TextView
+                android:id="@+id/MatchUserOccupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Student"
+                android:textColor="@color/gray"
+                android:textSize="14sp" />
+
+            <!-- Last Message -->
+            <TextView
+                android:id="@+id/MatchUserLastMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This is the last message sent"
+                android:textColor="@color/gray_dark"
+                android:textSize="14sp"
+                android:ellipsize="end"
+                android:maxLines="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/MatchId"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            android:maxLines="1" />
+
+        <!-- Notification Dot -->
+        <ImageView
+            android:id="@+id/MatchNotificationDot"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="top"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/icon_notification"
+            android:visibility="gone" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

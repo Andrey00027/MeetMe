@@ -1,6 +1,8 @@
-package com.example.meetme;
+package com.example.meetme.Matched;
 
 import android.os.Bundle;
+
+import com.example.meetme.R;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
