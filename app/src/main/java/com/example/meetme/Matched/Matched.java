@@ -5,16 +5,15 @@ import java.util.ArrayList;
 public class Matched
 {
 
-    private String userId, name, profileImageUrl, occupation, phone, lastMessage, lastTimeStamp, lastSeen, childId;
+    private String userId, name, profileImageUrl, occupation, lastMessage, lastTimeStamp, lastSeen, childId;
     private ArrayList<Matched> userObjectArrayList = new ArrayList<>();
 
-    public Matched(String userId, String name, String profileImageUrl, String occupation, String phone, String lastMessage, String lastTimeStamp, String lastSeen, String childId)
+    public Matched(String userId, String name, String profileImageUrl, String occupation, String lastMessage, String lastTimeStamp, String lastSeen, String childId)
     {
         this.userId = userId;
         this.name = name;
         this.profileImageUrl = profileImageUrl;
         this.occupation = occupation;
-        this.phone = phone;
         this.lastMessage = lastMessage;
         this.lastTimeStamp = lastTimeStamp;
         this.lastSeen = lastSeen;
@@ -59,14 +58,6 @@ public class Matched
 
     public void setOccupation(String occupation) {
         this.occupation = occupation;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getLastMessage() {
