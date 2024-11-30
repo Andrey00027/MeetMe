@@ -5,27 +5,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:elevation="4dp"
+    android:layout_margin="0dp"
+    android:padding="0dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:padding="0dp">
 
         <ImageButton
             android:id="@+id/imbBackSettings"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-20dp"
-            android:background="@color/white"
-            android:src="@drawable/back_icon"/>
+            android:background="@drawable/back_icon"/>
 
         <TextView
             android:id="@+id/settings_ToolBar_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginRight="60dp"
             android:text="Perfil"
             android:textStyle="bold"
             android:textSize="28sp"

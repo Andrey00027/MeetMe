@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.meetme.ChatActivity;
+import com.example.meetme.ChatRoom.ChatActivity;
 import com.example.meetme.R;
 
 import androidx.annotation.NonNull;

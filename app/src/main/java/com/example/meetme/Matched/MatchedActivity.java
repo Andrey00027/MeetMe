@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.widget.ImageView;
 
+import com.example.meetme.MainActivity;
 import com.example.meetme.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -52,7 +53,7 @@ public class MatchedActivity extends AppCompatActivity
             return insets;
         });
 
-        mBack = findViewById(R.id.imvMatchedBack);
+        mBack = findViewById(R.id.imbBackMatched);
         currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         mRecyclerView = findViewById(R.id.recyclerViewMatched);
@@ -64,7 +65,7 @@ public class MatchedActivity extends AppCompatActivity
         mRecyclerView.setAdapter(mMatchedAdapter);
 
         mBack.setOnClickListener(v -> {
-            Intent intent = new Intent(MatchedActivity.this, MatchedActivity.class);
+            Intent intent = new Intent(MatchedActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         });

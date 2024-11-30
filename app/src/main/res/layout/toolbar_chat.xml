@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/transparentPink"
+    android:background="@color/white"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
@@ -12,22 +12,22 @@
         android:layout_height="wrap_content">
 
         <ImageButton
-            android:id="@+id/chatBack"
-            android:layout_width="wrap_content"
+            android:id="@+id/imbBackChat"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="0dp"
+            android:layout_marginLeft="-20dp"
             android:background="@drawable/back_icon"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginRight="60dp"
             android:text="Chat"
             android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textColor="@color/red_dark"
             android:onClick="showProfile"
             android:clickable="true"/>
 

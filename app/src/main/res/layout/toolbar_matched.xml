@@ -14,19 +14,18 @@
         android:layout_marginLeft="0dp">
 
         <ImageButton
-            android:id="@+id/matchedBack"
-            android:layout_width="wrap_content"
+            android:id="@+id/imbBackMatched"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-20dp"
-            android:src="@drawable/back_icon"
-            android:background="@color/white"/>
+            android:background="@drawable/back_icon"/>
 
         <TextView
             android:id="@+id/matched_ToolBar_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginRight="60dp"
             android:text="Matched"
             android:textStyle="bold"
             android:textSize="28sp"
