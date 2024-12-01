@@ -75,7 +75,7 @@ public class ChatActivity extends AppCompatActivity
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_chat);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.rootLayoutChatActivity), (v, insets) ->
         {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -89,7 +89,7 @@ public class ChatActivity extends AppCompatActivity
         currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId).child("connections")
-                .child("matched").child(matchId).child("chatId");
+                .child("matched").child(matchId).child("ChatId");
         mDatabaseChat = FirebaseDatabase.getInstance().getReference().child("Chat");
 
         getChatId();
@@ -206,19 +206,19 @@ public class ChatActivity extends AppCompatActivity
     {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.chat_menu, menu);
-        TextView mMatchNameTextView = findViewById(R.id.chatToolbar);
+        TextView mMatchNameTextView = findViewById(R.id.txvNameChat);
         mMatchNameTextView.setText(matchName);
         return true;
     }
 
-    public void showProfile(View v){
+    public void showProfile(View v)
+    {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.item_profile, null);
 
-        TextView name = popupView.findViewById(R.id.name);
-        ImageView image = popupView.findViewById(R.id.image);
-        TextView occupation = popupView.findViewById(R.id.occupation);
-        TextView age = popupView.findViewById(R.id.age);
+        TextView name = popupView.findViewById(R.id.txvNameItemProfile);
+        ImageView image = popupView.findViewById(R.id.imageItemProfile);
+        TextView occupation = popupView.findViewById(R.id.txvOccupationItemProfile);
 
 
         name.setText(matchName);
@@ -263,7 +263,8 @@ public class ChatActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
         if(item.getItemId() == R.id.unmatch){
             new AlertDialog.Builder(ChatActivity.this)
                     .setTitle("Unmatch")
@@ -283,8 +284,9 @@ public class ChatActivity extends AppCompatActivity
                     .show();
 
         }
-        else if(item.getItemId() == R.id.viewProfile){
-            showProfile(findViewById(R.id.content));
+        else if(item.getItemId() == R.id.viewProfile)
+        {
+            showProfile(findViewById(R.id.rootLayoutChatActivity));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -293,10 +295,10 @@ public class ChatActivity extends AppCompatActivity
     {
 
         DatabaseReference matchId_in_UserId_dbReference = FirebaseDatabase.getInstance().getReference().child("Users")
-                .child(currentUserId).child("connections").child("matches").child(matchId);
+                .child(currentUserId).child("connections").child("matched").child(matchId);
 
         DatabaseReference userId_in_matchId_dbReference = FirebaseDatabase.getInstance().getReference().child("Users")
-                .child(matchId).child("connections").child("matches").child(currentUserId);
+                .child(matchId).child("connections").child("matched").child(currentUserId);
 
         DatabaseReference yeps_in_matchId_dbReference = FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(matchId).child("connections").child("yeps").child(currentUserId);
@@ -310,6 +312,7 @@ public class ChatActivity extends AppCompatActivity
         matchId_in_UserId_dbReference.removeValue();
         userId_in_matchId_dbReference.removeValue();
         yeps_in_matchId_dbReference.removeValue();
+
         yeps_in_UserId_dbReference.removeValue();
 
     }

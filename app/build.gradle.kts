@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.gms.google-services")
+    //id("com.onesignal.onesignal-gradle-plugin")
 }
 
 android {
@@ -14,7 +15,13 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
+//        manifestPlaceholders["onesignal_app_id"] = ""
+//        manifestPlaceholders["onesignal_google_project_number"] = ""
     }
+
+
 
     buildTypes {
         release {
@@ -58,7 +65,6 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-storage")
     implementation("com.google.firebase:firebase-messaging")
-//    implementation("com.google.firebase:firebase-core:17.0.0")
     implementation("com.google.firebase:firebase-database")
 
     // OneSignal

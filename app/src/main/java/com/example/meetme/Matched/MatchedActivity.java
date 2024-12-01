@@ -116,7 +116,7 @@ public class MatchedActivity extends AppCompatActivity
 
     private void getUserMatchId() {
         Query sortedMatchedByLastTimeStamp = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId)
-                .child("connections").child("matched").orderByChild("lastTimeStamp");
+                .child("connections").child("yeps").orderByChild("lastTimeStamp");
 
         sortedMatchedByLastTimeStamp.addListenerForSingleValueEvent(new ValueEventListener()
         {

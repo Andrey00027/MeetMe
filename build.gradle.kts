@@ -14,5 +14,6 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:8.7.2")
         classpath("com.google.gms:google-services:4.4.0")
+        classpath("gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.12.4")
     }
 }

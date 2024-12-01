@@ -40,7 +40,7 @@ public class btnDislikeActivity extends AppCompatActivity
         });
 
         setupTopNavigationView();
-        dislike = findViewById(R.id.dislikeBtn);
+        dislike = findViewById(R.id.btnDislikeMain);
 
         Intent intent = getIntent();
         String profileUrl = intent.getStringExtra("url");

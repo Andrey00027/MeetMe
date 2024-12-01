@@ -40,7 +40,7 @@ public class btnLikeActivity extends AppCompatActivity
         });
 
         setupTopNavigationView();
-        like = findViewById(R.id.likeBtn);
+        like = findViewById(R.id.btnLikeMain);
 
         Intent intent = getIntent();
         String profileUrl = intent.getStringExtra("url");
